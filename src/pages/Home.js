@@ -28,7 +28,7 @@ export default function Home() {
                             <th scope="col">Title</th>
                             <th scope="col">Score</th>
                             <th scope="col">Episode Count</th>
-                            <th scope="col">Year of Release</th>
+                            <th scope="col">Release Year</th>
                             <th scope="col">Studio</th>
                             <th scope="col">Simulcast</th>
                             <th scope="col">Actions</th>
@@ -43,7 +43,7 @@ export default function Home() {
                                 <td>{anime.title}</td>
                                 <td>{anime.score.toFixed(1)}</td>
                                 <td>{anime.episodeCount}</td>
-                                <td>{anime.yearOfRelease}</td>
+                                <td>{anime.releaseYear}</td>
                                 <td>{anime.studio}</td>
                                 <td>{anime.isSimulcast.toString()}</td>
                                 <td>

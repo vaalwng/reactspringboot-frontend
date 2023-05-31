@@ -8,7 +8,7 @@ export default function ViewAnime() {
         title: "",
         score: "",
         episodeCount: "",
-        yearOfRelease: "",
+        releaseYear: "",
         studio: "",
         isSimulcast: ""
     })
@@ -47,7 +47,7 @@ export default function ViewAnime() {
                 </li>
                 <li className="list-group-item">
                   <b>Release Year: </b>
-                  {anime.yearOfRelease}
+                  {anime.releaseYear}
                 </li>
                 <li className="list-group-item">
                   <b>Studio: </b>

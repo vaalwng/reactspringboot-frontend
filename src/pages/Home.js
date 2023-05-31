@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
 export default function Home() {
     const [animes, setAnimes] = useState([]);
 
+    const { id } = useParams();
+
     useEffect(() => {
-        loadAnimes();
+        loadAnimeCatalog();
     }, []);
 
-    const loadAnimes = async () => {
+    const loadAnimeCatalog = async () => {
         const results = await axios.get(
-            "http://localhost:8080/api/anime/getall-anime"
+            "http://localhost:8080/api/anime/catalog"
         );
         setAnimes(results.data);
     };
@@ -23,11 +26,12 @@ export default function Home() {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
+                            <th scope="col">Score</th>
                             <th scope="col">Episode Count</th>
                             <th scope="col">Year of Release</th>
                             <th scope="col">Studio</th>
-                            <th scope="col">Airing</th>
-                            <th scope="col">Score</th>
+                            <th scope="col">Simulcast</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,11 +41,19 @@ export default function Home() {
                                     {index + 1}
                                 </th>
                                 <td>{anime.title}</td>
+                                <td>{anime.score.toFixed(1)}</td>
                                 <td>{anime.episodeCount}</td>
                                 <td>{anime.yearOfRelease}</td>
                                 <td>{anime.studio}</td>
-                                <td>{anime.isCurrentlyAiring.toString()}</td>
-                                <td>{anime.score}</td>
+                                <td>{anime.isSimulcast.toString()}</td>
+                                <td>
+                                    <Link
+                                        className="btn btn-primary mx-2"
+                                        to={`/viewanime/${anime.id}`}
+                                    >
+                                        details
+                                    </Link>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

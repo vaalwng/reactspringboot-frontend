@@ -60,6 +60,12 @@ export default function Home() {
                                     </Link>
                                     <Link
                                         className="btn btn-primary mx-2"
+                                        to={`/editanime/${anime.id}`}
+                                    >
+                                        edit
+                                    </Link>
+                                    <Link
+                                        className="btn btn-primary mx-2"
                                         onClick={() => deleteAnimeEntry(anime.id)}
                                     >
                                         remove

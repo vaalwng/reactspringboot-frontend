@@ -15,6 +15,7 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/addanime" element={<AddAnime />} />
+                    <Route exact path="/editanime/:id" element={<EditAnime />} />
                     <Route exact path="/viewanime/:id" element={<ViewAnime />} />
                 </Routes>
             </Router>

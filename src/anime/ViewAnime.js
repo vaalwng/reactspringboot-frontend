@@ -61,8 +61,8 @@ export default function ViewAnime() {
                             </ul>
                         </div>
                         <div className="border">
-                            <header className="fw-bold">synopsis</header>
-                            <text>Lorem impsum</text>
+                            <header className="fw-bold">Summary</header>
+                            <textarea disabled className="border-0 container">Lorem impsum</textarea>
                         </div>
                     </div>
                     <Link className="btn btn-primary my-2" to={"/"}>

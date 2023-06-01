@@ -18,8 +18,12 @@ export default function AddAnime() {
         anime;
 
     const onInputChange = (e) => {
-        setAnime({ ...anime, [e.target.name]: e.target.value});
+        setAnime({ ...anime, [e.target.name] : e.target.value});
     };
+
+    const onCheckChange = (e) => {
+        setAnime({ ...anime, [e.target.name] : e.target.checked});
+    }
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -35,10 +39,11 @@ export default function AddAnime() {
 
                     <form onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
-                            <label htmlFor="Title" className="form-label">
+                            <label htmlFor="title" className="form-label">
                                 Title
                             </label>
                             <input
+                                id="title"
                                 type={"text"}
                                 className="form-control"
                                 placeholder="enter title"
@@ -48,13 +53,13 @@ export default function AddAnime() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="Score" className="form-label">
+                            <label htmlFor="score" className="form-label">
                                 Score
                             </label>
                             <input
+                                id="score"
                                 type={"number"}
                                 className="form-control"
-                                placeholder="enter score"
                                 name="score"
                                 value={score}
                                 step="0.1"
@@ -63,7 +68,63 @@ export default function AddAnime() {
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
-
+                        <div className="mb-3">
+                            <label htmlFor="episodeCount" className="form-label">
+                                Episode Count
+                            </label>
+                            <input
+                                id="episodeCount"
+                                type={"number"}
+                                className="form-control"
+                                name="episodeCount"
+                                value={episodeCount}
+                                step="1"
+                                min = "0"
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="releaseYear" className="form-label">
+                                Release Year
+                            </label>
+                            <input
+                                id="releaseYear"
+                                type={"number"}
+                                className="form-control"
+                                name="releaseYear"
+                                value={releaseYear}
+                                step="1"
+                                min = "0"
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="studio" className="form-label">
+                                Studio
+                            </label>
+                            <input
+                                id="studio"
+                                type={"text"}
+                                className="form-control"
+                                placeholder="enter studio"
+                                name="studio"
+                                value={studio}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="simulcast" className="form-check-label container">
+                                Simulcast
+                            </label>
+                            <input
+                                id="simulcast"
+                                type="checkbox"
+                                className="form-check-input"
+                                name="isSimulcast"
+                                value={isSimulcast}
+                                onChange={(e) => onCheckChange(e)}
+                            />
+                        </div>
                         <button
                             type="submit"
                             className="btn btn-outline-primary"

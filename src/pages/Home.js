@@ -18,6 +18,11 @@ export default function Home() {
         setAnimes(results.data);
     };
 
+    const deleteAnimeEntry = async (id) => {
+        await axios.delete(`http://localhost:8080/api/anime/${id}`);
+        loadAnimeCatalog();
+    }
+
     return (
         <div className="container">
             <div className="py-4">
@@ -52,6 +57,12 @@ export default function Home() {
                                         to={`/viewanime/${anime.id}`}
                                     >
                                         details
+                                    </Link>
+                                    <Link
+                                        className="btn btn-primary mx-2"
+                                        onClick={() => deleteAnimeEntry(anime.id)}
+                                    >
+                                        remove
                                     </Link>
                                 </td>
                             </tr>
